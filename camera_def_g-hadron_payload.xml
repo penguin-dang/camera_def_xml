@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mavlinkcamera>
+    <definition version="2">
+        <model>G-Hadron Payload</model>
+        <vendor>Gremsy</vendor>
+    </definition>
+    <parameters>
+        <!-- control = 0 tells us this should not create an automatic UI control -->
+        <parameter name="CAM_MODE" type="uint32" default="1" control="0">
+            <description>Camera Mode</description>
+            <options>
+                <option name="Photo" value="0">
+                </option>
+                <option name="Video" value="1">
+                </option>
+            </options>
+        </parameter>
+        <parameter name="SETTING_TARGET" type="uint32" default="0">
+            <description>Setting Target</description>
+            <options>
+                <option name="Camera Device" value="0">
+                    <exclusions>
+                        <exclude>GB_MODE</exclude>
+                    </exclusions>
+                </option>
+                <option name="Gimbal Device" value="1">
+                    <exclusions>
+                        <exclude>C_SOURCE</exclude>
+                        <exclude>C_V_REC</exclude>
+                        <exclude>C_T_PALETTE</exclude>
+                        <exclude>C_T_ZOOM</exclude>
+                        <exclude>C_V_ZOOM</exclude>
+                        <exclude>STORAGE</exclude>
+                    </exclusions>
+                </option>
+            </options>
+        </parameter>
+        <parameter name="STORAGE" type="uint32" default="0">
+            <description>Photos storage</description>
+            <options>
+                <option name="Internal Storage" value="0" />
+                <option name="SD Card" value="1" />
+            </options>
+        </parameter>
+
+        <parameter name="C_SOURCE" type="uint32" default="0">
+            <description>Camera View</description>
+            <options>
+                <option name="EO/IR" value="0" />
+                <option name="EO" value="1">
+                    <exclusions>
+                        <exclude>C_T_PALETTE</exclude>
+                        <exclude>C_T_ZOOM</exclude>
+                    </exclusions>
+                </option>
+                <option name="IR" value="2">
+                    <exclusions>
+                        <exclude>C_V_ZOOM</exclude>
+                    </exclusions>
+                </option>
+                <option name="IR/EO" value="3" />
+            </options>
+        </parameter>
+
+        <parameter name="C_V_REC" type="uint32" default="0">
+            <description>Camera Record</description>
+            <options>
+                <option name="EO and IR" value="0" />
+                <option name="EO" value="1" />
+                <option name="IR" value="2" />
+                <option name="OSD" value="5" />
+            </options>
+        </parameter>
+
+        <!-- IR camera params -->
+        <parameter name="C_T_PALETTE" type="uint32" default="0">
+            <description>IR Palette</description>
+            <options>
+                <option name="WhiteHot" value="0" />
+                <option name="BlackHot" value="1" />
+                <option name="Rainbow" value="2" />
+                <option name="RainbowHC" value="3" />
+                <option name="Ironbow" value="4" />
+                <option name="Lava" value="5" />
+                <option name="Arctic" value="6" />
+                <option name="Globow" value="7" />
+                <option name="Gradedfire" value="8" />
+                <option name="Hottest" value="9" />
+            </options>
+        </parameter>
+
+        <parameter name="C_T_ZOOM" type="uint32" default="0" min="0" max="48" step ="1">
+            <description>IR Zoom</description>
+        </parameter>
+
+        <!-- EO camera params -->
+        <parameter name="C_V_ZOOM" type="uint32" default="0" min="0" max="11" step ="1">
+            <description>EO Zoom</description>
+        </parameter>
+
+        <!-- Gimbal params -->
+        <parameter name="GB_MODE" type="uint32" default="0">
+            <description>Gimbal Mode</description>
+            <options>
+                <option name="OFF" value="0" />
+                <option name="LOCK" value="1" />
+                <option name="FOLLOW" value="2" />
+                <option name="MAPPING" value="3" />
+                <option name="RETURN HOME" value="4" />
+            </options>
+        </parameter>
+    </parameters>
+</mavlinkcamera>
